@@ -1,0 +1,54 @@
+{{#if tasks}}
+
+<table> 
+  <thead>
+    <tr>
+      <th>N.</th>
+      <th>title</th>
+      <th>description</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tasks}}
+
+      <tr>
+        <td>{{@index}}</td>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>
+          {{#if done}}
+            <a href="/tasks/{{_id}}/toggleDone" >Undone</a>{{! opcion undone}}
+          {{else}}
+            <a href="/tasks/{{_id}}/toggleDone">Done</a>{{! opcion done}}
+          {{/if}}
+
+          <a href="/tasks/{{_id}}/delete">delete</a>
+          <a href="/tasks/{{_id}}/edit">update</a>
+        </td>
+      </tr>
+
+
+
+    {{/each}}
+  </tbody>
+</table>
+
+      {{else}} {{! else del each, each tambien se comporta como una condicion}}
+    {{!-- si no hay staks ejecute esto --}}
+      
+      <h1>no stasks</h1>
+      <img src="" alt="">
+      
+{{/if}}
+{{!-- 
+  
+  {{#each tasks}}
+    <li>{{title}}</li>
+    <p>{{description}}</p>
+    <button>edit</button>
+    <button>delete</button>
+  {{/each}} 
+  
+  
+  --}}
